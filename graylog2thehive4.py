@@ -78,6 +78,9 @@ def webhook():
             artifacts.append(AlertArtifact(dataType='fqdn', data=fields[key]))
         elif key == 'url':
             artifacts.append(AlertArtifact(dataType='url', data=fields[key]))
+        else:
+            key == fields[key]
+            artifacts.append(AlertArtifact(dataType='other', data=fields[key]))
 
 
     # Prepare the Alert
