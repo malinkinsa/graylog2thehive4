@@ -81,10 +81,6 @@ if key == 'src_ip':
             artifacts.append(AlertArtifact(dataType='src_ip', data=fields[key]))
 ```
 
-# To-Do
-
-- [] Create docker container;
-
 # Credits
 
 Based on [graylog2thehive4](https://github.com/H2Cyber/Graylog2TheHive4) 
