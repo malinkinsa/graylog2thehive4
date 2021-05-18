@@ -6,7 +6,7 @@ Simple app to create TheHive4 alerts from Graylog
 
 This app has been tested with the following versions:
 - CentOS 7.9.2009 (Core)
-- Graylog 4.0.6
+- Graylog 4.0.7
 - TheHive4 4.0.4-1
 
 This app should be installed on the host where TheHive4 is installed.
