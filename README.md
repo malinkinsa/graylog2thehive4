@@ -32,7 +32,7 @@ pip3 install -r requirements.txt
 cp init.d/graylog2thehive4.service /etc/systemd/system/
 ```
 
-- Configure TheHive4 URL, API key and Graylog url in graylog2thehive4.service:
+- Configure `TheHive4 URL`, `API key` and `Graylog url` in graylog2thehive4.service:
 
 ```
 vim /etc/systemd/system/graylog2thehive4.service
@@ -54,12 +54,20 @@ systemctl daemon-reload
 cp logrotate.d/graylog2thehive /etc/logrotate.d/
 ```
 
-- Launch application and add to autostart:
+- Launch application as a service and add to autostart:
 
 ```
 systemctl start graylog2thehive4.service
 systemctl enable graylog2thehive4.service
 ```
+
+- Launch application from command line with specified `TheHive4 URL`, `API key` and `Graylog url`:
+
+```
+cd /opt/graylog2thehive4/
+python3 graylog2thehive4.py --thehive_url= --api_key= --graylog_url=
+```
+
 
 ## Setup Graylog Notification
 
@@ -80,6 +88,10 @@ Create new `Notification` with  in `Alerts -> Notifications`:
 if key == 'src_ip':
             artifacts.append(AlertArtifact(dataType='src_ip', data=fields[key]))
 ```
+
+# Logging
+
+For debug you can use log with message from graylog and message that sending to thehive4. It located in `/var/log/graylog2thehive4.log`
 
 # Credits
 
