@@ -63,9 +63,11 @@ def webhook():
 
     for key in fields.keys():
         if key == 'src_ip':
-            artifacts.append(AlertArtifact(dataType='src_ip', data=fields[key]))
+            artifacts.append(AlertArtifact(dataType='ip', tags=['src_ip'], data=fields[key]))
         elif key == 'dst_ip':
-            artifacts.append(AlertArtifact(dataType='dst_ip', data=fields[key]))
+            artifacts.append(AlertArtifact(dataType='ip', tags=['dst_ip'], data=fields[key]))
+        elif key == 'ip':
+            artifacts.append(AlertArtifact(dataType='ip', data=fields[key]))
         elif key == 'username':
             artifacts.append(AlertArtifact(dataType='username', data=fields[key]))
         elif key == 'email':
