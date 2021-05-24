@@ -110,6 +110,5 @@ def webhook():
     return content['event_definition_title']
 
 if __name__ == '__main__':
-    context = ssl.SSLContext()
-    context.load_cert_chain('fullchain.pem', 'privkey.pem')
+    context = ('local.crt', 'local.key')
     app.run(host='0.0.0.0', ssl_context=context, debug=False)
