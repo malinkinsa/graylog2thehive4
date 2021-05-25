@@ -39,15 +39,6 @@ vim /etc/systemd/system/graylog2thehive4.service
 systemctl daemon-reload
 ```
 
-- Configure SSL, IP, PORT for application in graylog2thehive4.py:
-
-```
-    context = ssl.SSLContext()
-    context.load_cert_chain('fullchain.pem', 'privkey.pem')
-    app.run(host='0.0.0.0', ssl_context=context
-    debug=False)
-```
-
 - Configure application log rotation:
 
 ```
