@@ -12,14 +12,18 @@ from flask import Flask, Response, render_template, request, flash, redirect, ur
 app = Flask(__name__)
 
 arg = argparse.ArgumentParser()
-arg.add_argument('--thehive_url', help='Configure TheHive URL | Example http://127.0.0.1:9000')
-arg.add_argument('--api_key', help='Configure API Key for organisation user, this user will be the author of all alerts')
-arg.add_argument('--graylog_url', help='Configure Graylog URL')
+arg.add_argument('--thehive_url', help='Configure TheHive URL | Example http://127.0.0.1:9000', required=True)
+arg.add_argument('--api_key', help='Configure API Key for organisation user, this user will be the author of all alerts', required=True)
+arg.add_argument('--graylog_url', help='Configure Graylog URL', required=True)
+arg.add_argument('--ip', help='Configure ip where application will be launch', required=True')
+arg.add_argument('--port', help='Configure port where application will be launch', default=5000)
 
 args = vars(arg.parse_args())
 thehive_url = args["thehive_url"]
 api_key = args["api_key"]
 graylog_url = args["graylog_url"]
+ip = args["ip"]
+port = args["port"]
 
 api = TheHiveApi(thehive_url, api_key)
 
@@ -110,5 +114,4 @@ def webhook():
     return content['event_definition_title']
 
 if __name__ == '__main__':
-    context = ('local.crt', 'local.key')
-    app.run(host='0.0.0.0', ssl_context=context, debug=False)
+    app.run(host=ip, port=port, debug=False)
