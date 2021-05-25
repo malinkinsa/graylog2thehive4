@@ -32,7 +32,7 @@ pip3 install -r requirements.txt
 cp init.d/graylog2thehive4.service /etc/systemd/system/
 ```
 
-- Configure `TheHive4 URL`, `API key` and `Graylog url` in graylog2thehive4.service:
+- Configure `TheHive4 URL`, `API key`, `Graylog url`, `Ip where application will be work` and `Port where application will be work (optional)` in graylog2thehive4.service:
 
 ```
 vim /etc/systemd/system/graylog2thehive4.service
@@ -52,11 +52,11 @@ systemctl start graylog2thehive4.service
 systemctl enable graylog2thehive4.service
 ```
 
-- Launch application from command line with specified `TheHive4 URL`, `API key` and `Graylog url`:
+- Launch application from command line with specified `TheHive4 URL`, `API key`, `Graylog url`, `Ip where application will be work` and `Port where application will be work (optional)`:
 
 ```
 cd /opt/graylog2thehive4/
-python3 graylog2thehive4.py --thehive_url= --api_key= --graylog_url=
+python3 graylog2thehive4.py --thehive_url= --api_key= --graylog_url= --ip= --port=
 ```
 
 
