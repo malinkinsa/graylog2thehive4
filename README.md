@@ -52,7 +52,7 @@ systemctl start graylog2thehive4.service
 systemctl enable graylog2thehive4.service
 ```
 
-  - Launch application from command line with specified `TheHive4 URL`, `API key`, `Graylog url`, `Ip where application will be work` and `Port where application will be work (optional)`:
+- Launch application from command line with specified `TheHive4 URL`, `API key`, `Graylog url`, `Ip where application will be work` and `Port where application will be work (optional)`:
 
 ```
 cd /opt/graylog2thehive4/
