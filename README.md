@@ -1,5 +1,7 @@
 # Graylog2TheHive4
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/73aaf5e73ea14716a98ea04bba8b6650)](https://www.codacy.com/gh/malinkinsa/graylog2thehive4/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=malinkinsa/graylog2thehive4&amp;utm_campaign=Badge_Grade)
+
 Simple app to create TheHive4 alerts from Graylog
 
 ## Environment
