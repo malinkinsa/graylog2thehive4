@@ -1,13 +1,11 @@
-import ssl
 import sys
-import requests
 import json
 import uuid
 import logging
 import argparse
 from thehive4py.api import TheHiveApi
-from thehive4py.models import Alert, AlertArtifact, CustomFieldHelper
-from flask import Flask, Response, render_template, request, flash, redirect, url_for
+from thehive4py.models import Alert, AlertArtifact
+from flask import Flask, request
 
 app = Flask(__name__)
 
