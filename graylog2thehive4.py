@@ -5,7 +5,7 @@ import logging
 import argparse
 from thehive4py.api import TheHiveApi
 from thehive4py.models import Alert, AlertArtifact
-from flask import Flask, request, flash, redirect, url_for
+from flask import Flask, request, redirect, url_for
 
 app = Flask(__name__)
 
