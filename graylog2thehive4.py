@@ -15,7 +15,7 @@ arg = argparse.ArgumentParser()
 arg.add_argument('--thehive_url', help='Configure TheHive URL | Example http://127.0.0.1:9000', required=True)
 arg.add_argument('--api_key', help='Configure API Key for organisation user, this user will be the author of all alerts', required=True)
 arg.add_argument('--graylog_url', help='Configure Graylog URL', required=True)
-arg.add_argument('--ip', help='Configure ip where application will be launch', required=True')
+arg.add_argument('--ip', help='Configure ip where application will be launch', required=True)
 arg.add_argument('--port', help='Configure port where application will be launch', default=5000)
 
 args = vars(arg.parse_args())
