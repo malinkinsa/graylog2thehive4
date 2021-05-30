@@ -36,8 +36,8 @@ def webhook():
     content = request.get_json()
 
     # Add logging
-    log_directory = './log/'
-    os.mkdir(log_directory)
+    log_dir = './log/'
+    os.mkdir(log_dir)
     logging.basicConfig(filename='./log/graylog2thehive4.log', filemode='a', format='%(asctime)s - graylog2thehive - %(levelname)s - %(message)s', level=logging.INFO)
     logging.info(json.dumps(content, indent=4, sort_keys=True))
 
