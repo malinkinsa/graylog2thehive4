@@ -28,6 +28,10 @@ api = TheHiveApi(thehive_url, api_key)
 
 graylog_url = graylog_url
 
+log_dir = './log/'
+if not os.path.exists(log_dir):
+    os.mkdir(log_dir)
+
 # Webhook to process Graylog HTTP Notification
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -36,8 +40,6 @@ def webhook():
     content = request.get_json()
 
     # Add logging
-    log_dir = './log/'
-    os.mkdir(log_dir)
     logging.basicConfig(filename='./log/graylog2thehive4.log', filemode='a', format='%(asctime)s - graylog2thehive - %(levelname)s - %(message)s', level=logging.INFO)
     logging.info(json.dumps(content, indent=4, sort_keys=True))
 
