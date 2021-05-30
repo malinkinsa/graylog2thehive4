@@ -61,6 +61,10 @@ cd /opt/graylog2thehive4/
 python3 graylog2thehive4.py --thehive_url= --api_key= --graylog_url= --ip= --port=
 ```
 
+## Using Docker
+
+[Docker Image for Graylog2TheHive4](https://github.com/malinkinsa/docker-graylog2thehive4)
+
 ## Setup Graylog Notification
 
 Create new `Notification` with  in `Alerts -> Notifications`:
