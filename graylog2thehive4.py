@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 import uuid
@@ -35,7 +36,9 @@ def webhook():
     content = request.get_json()
 
     # Add logging
-    logging.basicConfig(filename='/var/log/graylog2thehive4.log', filemode='a', format='%(asctime)s - graylog2thehive - %(levelname)s - %(message)s', level=logging.INFO)
+    log_directory = './log/'
+    os.mkdir(log_directory)
+    logging.basicConfig(filename='./log/graylog2thehive4.log', filemode='a', format='%(asctime)s - graylog2thehive - %(levelname)s - %(message)s', level=logging.INFO)
     logging.info(json.dumps(content, indent=4, sort_keys=True))
 
     event = content['event']
