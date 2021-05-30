@@ -1,0 +1,98 @@
+2021-05-30 21:32:28,727 - graylog2thehive - INFO - {
+    "backlog": [],
+    "event": {
+        "alert": true,
+        "event_definition_id": "EventDefinitionTestId",
+        "event_definition_type": "notification-test-v1",
+        "fields": {
+            "field1": "value1",
+            "field2": "value2"
+        },
+        "id": "TEST_NOTIFICATION_ID",
+        "key": "testkey",
+        "key_tuple": [
+            "testkey"
+        ],
+        "message": "Notification test message triggered from user <local:admin>",
+        "origin_context": "urn:graylog:message:es:testIndex_42:b5e53442-12bb-4374-90ed-0deadbeefbaz",
+        "priority": 2,
+        "source": "000000000000000000000001",
+        "source_streams": [],
+        "streams": [
+            "000000000000000000000002"
+        ],
+        "timerange_end": null,
+        "timerange_start": null,
+        "timestamp": "2021-05-30T19:32:28.724Z",
+        "timestamp_processing": "2021-05-30T19:32:28.724Z"
+    },
+    "event_definition_description": "Event Definition Test Description",
+    "event_definition_id": "NotificationTestId",
+    "event_definition_title": "Event Definition Test Title",
+    "event_definition_type": "test-dummy-v1",
+    "job_definition_id": "<unknown>",
+    "job_trigger_id": "<unknown>"
+}
+2021-05-30 21:32:31,190 - graylog2thehive - INFO - {
+    "_id": "~40964216",
+    "_type": "alert",
+    "artifacts": [
+        {
+            "_id": "~4248",
+            "_type": "case_artifact",
+            "createdAt": 1622403149765,
+            "createdBy": "dev@thehive4.dev-lab.club",
+            "data": "value1",
+            "dataType": "other",
+            "id": "~4248",
+            "ioc": false,
+            "reports": {},
+            "sighted": false,
+            "startDate": 1622403149765,
+            "stats": {},
+            "tags": [],
+            "tlp": 2
+        },
+        {
+            "_id": "~8344",
+            "_type": "case_artifact",
+            "createdAt": 1622403149771,
+            "createdBy": "dev@thehive4.dev-lab.club",
+            "data": "value2",
+            "dataType": "other",
+            "id": "~8344",
+            "ioc": false,
+            "reports": {},
+            "sighted": false,
+            "startDate": 1622403149771,
+            "stats": {},
+            "tags": [],
+            "tlp": 2
+        }
+    ],
+    "case": null,
+    "caseTemplate": null,
+    "createdAt": 1622403150445,
+    "createdBy": "dev@thehive4.dev-lab.club",
+    "customFields": {},
+    "date": 1622403148000,
+    "description": "**Graylog event definition:** Event Definition Test Title",
+    "externalLink": null,
+    "follow": true,
+    "id": "~40964216",
+    "pap": 2,
+    "severity": 2,
+    "similarCases": [],
+    "source": "Graylog",
+    "sourceRef": "6be428",
+    "status": "New",
+    "tags": [
+        "Graylog"
+    ],
+    "title": "Notification test message triggered from user <local:admin>",
+    "tlp": 2,
+    "type": "external",
+    "updatedAt": null,
+    "updatedBy": null
+}
+2021-05-30 21:32:31,191 - graylog2thehive - INFO - 172.29.0.5 - - [30/May/2021 21:32:31] "[37mPOST /webhook HTTP/1.1[0m" 200 -
