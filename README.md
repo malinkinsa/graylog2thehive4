@@ -83,7 +83,7 @@ if key == 'src_ip':
 
 ## Logging
 
-For debug you can use log with message from graylog and message that sending to thehive4. It located in `/var/log/graylog2thehive4.log`
+For debug you can use log with message from graylog and message that sending to thehive4. It located in `./log/graylog2thehive4.log`
 
 ## Credits
 
