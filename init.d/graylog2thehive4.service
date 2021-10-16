@@ -5,8 +5,7 @@ After=multi-user.target
 [Service]
 Type=idle
 WorkingDirectory=/opt/graylog2thehive4
-Environment=FLASK_APP=graylog2thehive4.py
-ExecStart=/usr/bin/python3 graylog2thehive4.py --thehive_url= --api_key= --graylog_url=
+ExecStart=/usr/bin/python3 main.py --url= --api_key= --ip= --port=
 
 # Connects standard output to journal
 StandardOutput=journal
