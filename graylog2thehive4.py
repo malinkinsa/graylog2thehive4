@@ -1,29 +1,36 @@
-import ssl
+import os
 import sys
-import requests
 import json
 import uuid
 import logging
 import argparse
 from thehive4py.api import TheHiveApi
-from thehive4py.models import Alert, AlertArtifact, CustomFieldHelper
-from flask import Flask, Response, render_template, request, flash, redirect, url_for
+from thehive4py.models import Alert, AlertArtifact
+from flask import Flask, request
 
 app = Flask(__name__)
 
 arg = argparse.ArgumentParser()
-arg.add_argument('--thehive_url', help='Configure TheHive URL | Example http://127.0.0.1:9000')
-arg.add_argument('--api_key', help='Configure API Key for organisation user, this user will be the author of all alerts')
-arg.add_argument('--graylog_url', help='Configure Graylog URL')
+arg.add_argument('--thehive_url', help='Configure TheHive URL | Example http://127.0.0.1:9000', required=True)
+arg.add_argument('--api_key', help='Configure API Key for organisation user, this user will be the author of all alerts', required=True)
+arg.add_argument('--graylog_url', help='Configure Graylog URL', required=True)
+arg.add_argument('--ip', help='Configure ip where application will be launch', required=True)
+arg.add_argument('--port', help='Configure port where application will be launch', default=5000)
 
 args = vars(arg.parse_args())
 thehive_url = args["thehive_url"]
 api_key = args["api_key"]
 graylog_url = args["graylog_url"]
+ip = args["ip"]
+port = args["port"]
 
 api = TheHiveApi(thehive_url, api_key)
 
 graylog_url = graylog_url
+
+log_dir = './log/'
+if not os.path.exists(log_dir):
+    os.mkdir(log_dir)
 
 # Webhook to process Graylog HTTP Notification
 @app.route('/webhook', methods=['POST'])
@@ -33,7 +40,7 @@ def webhook():
     content = request.get_json()
 
     # Add logging
-    logging.basicConfig(filename='/var/log/graylog2thehive4.log', filemode='a', format='%(asctime)s - graylog2thehive - %(levelname)s - %(message)s', level=logging.INFO)
+    logging.basicConfig(filename='./log/graylog2thehive4.log', filemode='a', format='%(asctime)s - graylog2thehive - %(levelname)s - %(message)s', level=logging.INFO)
     logging.info(json.dumps(content, indent=4, sort_keys=True))
 
     event = content['event']
@@ -110,6 +117,4 @@ def webhook():
     return content['event_definition_title']
 
 if __name__ == '__main__':
-    context = ssl.SSLContext()
-    context.load_cert_chain('fullchain.pem', 'privkey.pem')
-    app.run(host='0.0.0.0', ssl_context=context, debug=False)
+    app.run(host=ip, port=port, debug=False)
