@@ -1,7 +1,0 @@
-/var/log//var/log/graylog2thehive4.log
-{
-    missingok
-    daily
-    rotate 4
-    compress
-}
