@@ -5,7 +5,7 @@ arg = argparse.ArgumentParser()
 arg.add_argument('--url', required=True)
 arg.add_argument('--api_key', required=True)
 arg.add_argument('--ip', required=True)
-arg.add_argument('--port', default=8000)
+arg.add_argument('--port', type=int, default=8000)
 
 args = vars(arg.parse_args())
 url = args['url']
@@ -15,4 +15,4 @@ port = args['port']
 
 
 if __name__ == "__main__":
-    uvicorn.run("app.webhook:webhook", host=ip, port=port, reload=True)
+    uvicorn.run("app.webhook:webhook", host=ip, port=port)
