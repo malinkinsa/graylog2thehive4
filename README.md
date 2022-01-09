@@ -1,3 +1,5 @@
+# Deprecated. New version available [here](https://github.com/malinkinsa/graylog-alert-gateway).
+
 # Graylog2TheHive4
 
 Simple app to create TheHive4 alerts from Graylog Event event definition.
